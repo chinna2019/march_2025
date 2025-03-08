@@ -1,0 +1,84 @@
+which git                                                       ==>     To check whether git has been installed or not
+
+git --version                                                   ==>     Git Version
+
+git config --global user.email                                  ==>     Shows if the EMail has been configured for commits to GitHub Account
+                                                                ==>     Need to provide as per GitHub account EMail installed
+
+git config --global user.email "arunachaleswara369@gmail.com"   ==>     If not configured, configure as it shown here
+
+git config user.email "arunachaleswara369@gmail.com"            ==>     To configure for single repository rather than global (all)
+
+git config --list                                               ==>     To get the list of all the configurations
+
+git config --global http.sslverify "false"                      ==>     To skip SSL Verification
+
+git status                                                      ==>     ERROR: fatal: not a git repository (or any of the parent directories): .git
+
+                                                                -->     If we run "git status" without initialization, we get the above ERROR
+
+git init                                                        ==>     To initialize git in the current directory
+
+                                                                -->     Initialized empty Git repository in /Users/damodarpolani/Documents/WebDev/ruby/git/.git/
+
+git status                              ==>     Shows Untracked files (Red) + Changes to be comitted (Green)   +  Changes not stagged for commit (Red)
+                                        -->     New files                   + Files that are moved to staging  +  existing staged files that are modified
+
+git add filename                                                ==>     To add each individual file to repository
+
+git add -A                                                      ==>     To add multiple files to the repository
+
+git reset filename                                              ==>     to move files from staging to workingspace directory / Untracked files list
+
+git commit -m "Commit Message"                                  ==>     to commit all staged files to Local repository
+
+git log                                                         ==>     Commit Hash + Author + Committed Date + Commit Message
+
+git log -p                                                      ==>     Like above + all the changes in the respective files will be shown
+
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------->
+git status                                                      ==>     After deleting a file --> changes not staged for commit --> deleted: filename
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   git-notes.txt
+        deleted:    test2.txt
+        
+        
+#--------------------------------------------------------------------------------------------------------------------------------------------->
+git reset --hard                            ==>     to remove any data added to the modified files that are under "Changes not staged for commit" in git status
+
+git checkout -b branchname                  ==>     Creates a new branch and simulataneously checkout the branch
+
+git branch                                  ==>     to get the list of branches available and to get current branch (* branchname - Green color)
+
+git merge magic                             ==>     to merge files from another branch called "magic" into master
+
+
+
+git remote add origin https://github.com/useraccount/gitName.git ==> 
+	We are mapping between Our Local Repository to REMOTE where ORIGIN  is https://github.com/useraccount/gitName.git
+
+git remote set-url origin https://github.com/useraccount/reponame.git  ==> 
+	We can use set-url only when we want to change the origin. Executing add origin will throw an error
+
+
+git push origin master                      ==>     to push commit changes to remote repository like github
+
+git pull                                    ==>     To update local repository from remote repository if local repository is out of date
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------->
+
+------------------------------------------- Add README.md File ------------------------------------------------------------
+
+touch README.md                                     # makes file in current directory
+echo "# App Academy Homeworks" >> README.md         # "creates 'App Academy Homeworks' header in README"
+git add README.md
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------->

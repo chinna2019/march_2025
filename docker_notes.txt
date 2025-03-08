@@ -1,0 +1,78 @@
+1. sudo su -
+
+2. yum erase podman buildah
+
+3. curl -fsSL https://get.docker.com -o get-docker.sh
+
+4. sh get-docker.sh
+
+5. reboot
+
+6. systemctl start docker (systemctl stop docker)
+
+7. docker version
+
+8. curl -SL https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+
+9. ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+10. chmod +x /usr/bin/docker-compose
+
+11. docker-compose version
+
+12. docker --help
+
+13. mkdir docker_demo
+
+14. cd docker_demo
+
+15. touch index.html
+
+16. vi index.html
+
+<html>
+    <body>
+	    <h1> Welcome to Dockerfile creation app</h1>
+	    <p>This is for testing Dockerfile creation</p>
+    </body>
+</html>
+
+17. touch Dockerfile
+
+18. vi Dockerfile
+
+FROM httpd:latest
+COPY index.html /usr/local/apache2/htdocs/
+
+19. docker build -t webapp:v1 .
+
+20. docker images
+
+21. docker run -d --name webapp -p 5000:80 webapp:v1
+
+22. docker ps
+
+23. yum install curl wget lynx w3m
+
+24. Open "http://localhost:5000" in local browser (wget -O - http://localhost:5000 )
+
+25. docker login
+
+26. docker tag <image ID> <dockerhub login>/webapp:v1
+
+27. docker push docker.io/<dockerhub login>/webapp:v1
+
+28. docker pull docker.io/<dockerhub login>/webapp:v1
+
+29. Remove all Containers
+
+docker container stop $(docker container ls -aq) && docker container rm $(docker container ls -aq)
+
+
+30. Remove all Docker Images
+
+docker rmi $(docker images -q)
+
+31. docker logs -f <container_name_or_id>
+
+32. docker exec -it <container_name_or_id> bash
